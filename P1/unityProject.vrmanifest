@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.p1.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\andrewmunoz\\Documents\\GitHub\\CS791_VR\\P1\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "P1 [Testing]"
+        }
+      }
+    }
+  ]
+}
