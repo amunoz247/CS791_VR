@@ -41,6 +41,18 @@
       "requirement": "optional"
     },
     {
+      "name": "/actions/default/in/MenuButton",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/touchpad",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/touchPos",
+      "type": "vector2"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -142,7 +154,10 @@
       "/actions/default/in/SkeletonRightHand": "Skeleton (Right)",
       "/actions/default/in/Teleport": "Teleport",
       "/actions/default/out/Haptic": "Haptic",
-      "/actions/platformer/in/Jump": "Jump"
+      "/actions/platformer/in/Jump": "Jump",
+      "/actions/default/in/MenuButton": "MenuButton",
+      "/actions/default/in/touchpad": "touchpad",
+      "/actions/default/in/touchPos": "touchPos"
     }
   ]
 }

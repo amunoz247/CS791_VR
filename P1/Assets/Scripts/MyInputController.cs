@@ -2,45 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class MyInputController : MonoBehaviour
 {
-    public SteamVR_TrackedObject rightHand;
-    private SteamVR_Controller.Device device;
-    
+    public SteamVR_Action_Single squeezeAction;
+
+    public SteamVR_Action_Vector2 touchPadAction;
+
     void Update()
     {
-        ButtonTest();
-    }
-
-    private void ButtonTest()
-    {
-        string msg = null;
-
-        // SteamVR
-        device = SteamVR_Controller.Input((int)rightHand.index);
-        if (device != null && device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
+        if (SteamVR_Actions._default.Teleport.GetStateDown(SteamVR_Input_Sources.Any))
         {
-            msg = "Trigger press";
-            device.triggerHapticPulse(700);
+            print("Teleport down");
         }
 
-        if (device != null && device.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
+        if (SteamVR_Actions._default.GrabPinch.GetStateUp(SteamVR_Input_Sources.Any))
         {
-            msg = "Trigger release";
+            print("Grab pinch up");
         }
 
-        if (msg != null)
-            Debug.Log("Input: " + msg);
-    }
+        float triggerValue = squeezeAction.GetAxis(SteamVR_Input_Sources.Any);
 
-    public bool ButtonDown()
-    {
-        return Input.GetButtonDown("Fire1");
-    }
+        if(triggerValue > 0.0f)
+        {
+            print(triggerValue);
+        }
 
-    public bool ButtonUp()
-    {
-        return Input.GetButtonUp("Fire1");
+        Vector2 touchpadValue = touchPadAction.GetAxis(SteamVR_Input_Sources.Any);
+
+        if(touchpadValue != Vector2.zero)
+        {
+            print(touchpadValue);
+        }
     }
 }
+
